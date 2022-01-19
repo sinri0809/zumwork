@@ -42,6 +42,13 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
     ],
   },
   devServer: {
@@ -49,5 +56,6 @@ module.exports = {
       directory: path.resolve(__dirname, "build"),
     },
     port: 8080,
+    open: true,
   }
 };
