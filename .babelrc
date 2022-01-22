@@ -5,6 +5,7 @@
   ],
   "env": {
     "development": {
+      // jsx 문법 해석하는 거임
       "presets": [["@babel/preset-react", { "development": true }]]
     }
   }

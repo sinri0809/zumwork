@@ -6,7 +6,13 @@ function h(type, props={}, ...children){
 import Component from "../core/Component";
 import { getPosts } from "../store/test";
 
-export default class Posts extends Component{
+
+export default class TopPosts extends Component{
+  // constructor($where){
+  //   super();
+  //   this.$where = $where;
+  //   console.log($where);
+  // }
   render(){
     // store에서 가져오는 거 구현해야함.
     this.state = [
@@ -45,7 +51,7 @@ export default class Posts extends Component{
       }
     ];
     this.$target = (
-      <div class="posts">
+      <div class="top-post">
         {
           this.state.map(({category, index, title, author, date, cont, like})=> {
             const liked = like?"liked! 🎇":"did't liked";

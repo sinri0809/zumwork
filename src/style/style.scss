@@ -1,4 +1,39 @@
 body {
-  background-color: black;
+  font-size: 1rem;
+  background-color: rgba($color: #000000, $alpha: 0.5);
   color: aliceblue;
+}
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .app {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
+}
+mark {
+  background-color: darkcyan;
+}
+a {
+  color: aliceblue;
+  padding: 0 1em;
+}
+.posts,
+.top-post {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  .post-card {
+    width: 20%;
+    height: 20rem;
+    overflow: hidden;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+  }
+}
+.top-post {
+  margin-top: 1rem;
+  background-color: salmon;
 }

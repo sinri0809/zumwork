@@ -2,17 +2,16 @@
 function h(type, props={}, ...children){ // props값이 없을 수 있으므로 default값 설정
   return { type, props, children };
 }
-
 /**
  * @createElement : 객체형태를 html로 (Obejct)
  */
-
 class Component{
   $where // 렌더링할 위치
   $target; // 렌더링하고싶은 dom
   state; // 데이터
   constructor($where){
     this.$where = $where;
+
     this.state = {}; // 데이터 initializing
     this.render();
   }
@@ -21,6 +20,7 @@ class Component{
     if (typeof node === 'string'|| typeof node == 'number'){
       return document.createTextNode(node);
     }
+
     const { type, props, children} = node;
     // 1 Tag 
     const $element = document.createElement(type);
@@ -45,16 +45,14 @@ class Component{
     
     return $element; // type: object
   }
-  
   setState(newData){
     this.state = {...this.state, ...newData}; // 데이터 바꾸고나면
     this.render(); // 렌더링
   }
 
+  // Component마다 필요한 이벤트 작성
   eventHandler(){
-    // Component마다 필요한 이벤트 작성
   }
-
   render(){
     this.$where.innerHTML = ''; // dom 초기화 수정 필요
     this.$target = (
