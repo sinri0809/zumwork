@@ -66,7 +66,6 @@ module.exports = {
         throw new Error('webpack-dev-server is not defined');
       }
 
-      // data.json 불러오기
       // local변수로 관리하기
       const posts = {
         "contents":[
@@ -106,7 +105,6 @@ module.exports = {
         ]
       
       };
-
       devServer.app.get('/api/posts', (req, res) => {
         res.json(posts);
       });

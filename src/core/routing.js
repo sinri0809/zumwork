@@ -1,3 +1,11 @@
+// 지금은 사용하지 않고 있습니다.
+
+
+
+
+
+import Posts from "../components/Posts";
+
 const route = {
   '/': '/api/posts',
   '/app': '/api/posts',
@@ -22,7 +30,8 @@ const routing = (state) => {
   switch (state){
     case '/life': case '/food': case '/travel': case '/culture':
       console.log('서브페이지');
-      // component는 같은데 data만 다르게 
+      // component는 같은데 data만 다르게
+      new Posts(state); 
       break;
     case '/favorite':
       console.log("즐겨찾기 페이지");

@@ -2,11 +2,25 @@
 function h(type, props={}, ...children){
   return { type, props, children };
 }
-
 import Component from "../core/Component";
-import { getPosts } from "../store/test";
+
 
 export default class Posts extends Component{
+  // changeState(){
+  //   const path = this.path.substr(1); // '/' 때버리기
+  //   console.log(path);
+
+  //   const matchCategory = this.state.map((item) => {
+  //     if ( item.category == this.path.substr(1) ){
+  //       console.log(item.category);
+  //       return item;
+  //     }else{
+  //       return null;
+  //     }
+  //   });
+  //   console.log(this.state);
+
+  // }
   render(){
     // store에서 가져오는 거 구현해야함.
     this.state = [
@@ -42,10 +56,36 @@ export default class Posts extends Component{
         "date": "2022-1-1",
         "cont": "로제로제로제로제로제",
         "like": true
+      },{
+        "category": "life",
+        "index": 4,
+        "title": "겨울 알뜰하게 보내기",
+        "author": "스크루지",
+        "date": "2022-2-1",
+        "cont": "추우면 따뜻하게 ^^",
+        "like": true
+      },{
+        "category": "life",
+        "index": 5,
+        "title": "여행가고싶다....",
+        "author": "흔한 추억러",
+        "date": "2022-1-1",
+        "cont": "하이델베르크의 추억",
+        "like": false
+      },{
+        "category": "life",
+        "index": 6,
+        "title": "마늘장아찌",
+        "author": "먹방",
+        "date": "2022-1-1",
+        "cont": "맛있게 돼라",
+        "like": true
       }
     ];
+
     this.$target = (
       <div class="posts">
+        {this.path}
         {
           this.state.map(({category, index, title, author, date, cont, like})=> {
             const liked = like?"liked! 🎇":"did't liked";
@@ -61,6 +101,6 @@ export default class Posts extends Component{
       </div>
     );
     this.$target = this.createElement(this.$target);
-    this.$where.appendChild(this.$target);
+    this.where.appendChild(this.$target);
   }
 }
