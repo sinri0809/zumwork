@@ -1,10 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = {
   mode: 'development',
-  // polyfill : 최신 문법 해석
+  // polyfill : es5이상 최신 문법 해석
   entry: ["@babel/polyfill", './src/index.js'],
   output: {
     path: path.resolve(__dirname, './build'),
@@ -61,7 +60,7 @@ module.exports = {
       "/api": "http://localhost:8081",
     },
     port: 8081,
-    open: true,
+    open: ['/app'],
     onBeforeSetupMiddleware: (devServer) => { //ability to execute custom middleware after all other middleware internally within the server.
       if (!devServer) {
         throw new Error('webpack-dev-server is not defined');
@@ -69,7 +68,6 @@ module.exports = {
 
       // data.json 불러오기
       // local변수로 관리하기
-      // express server.js???? 
       const posts = {
         "contents":[
           {
@@ -109,11 +107,49 @@ module.exports = {
       
       };
 
-
-      // data.json 가져오기
       devServer.app.get('/api/posts', (req, res) => {
         res.json(posts);
       });
     },
+    // setupMiddlewares: (middlewares, devServer) => {
+    //   if (!devServer) {
+    //     throw new Error('webpack-dev-server is not defined');
+    //   }
+
+    //   devServer.app.get('/setup-middleware/some/path', (_, response) => {
+    //     response.send('setup-middlewares option GET');
+    //   });
+
+    //   // Use the `unshift` method if you want to run a middleware before all other middlewares
+    //   // or when you are migrating from the `onBeforeSetupMiddleware` option
+    //   middlewares.unshift({
+    //     name: 'fist-in-array',
+    //     // `path` is optional
+    //     path: '/foo/path',
+    //     middleware: (req, res) => {
+    //       res.send('Foo!');
+    //     },
+    //   });
+
+    //   // Use the `push` method if you want to run a middleware after all other middlewares
+    //   // or when you are migrating from the `onAfterSetupMiddleware` option
+    //   // 이걸 이용하면 store를 제어할 수 있겠다
+    //   middlewares.push({
+    //     name: 'hello-world-test-one',
+    //     // `path` is optional
+    //     path: '/food',
+    //     middleware: (req, res) => {
+    //       res.send('Foo Bar!');
+    //     },
+    //   });
+
+    //   // 어떤 경로로 들어오든지간에 
+    //   middlewares.push((req, res) => {
+    //     res.send('요청할 수 없는 페이지 입니다!');
+    //     // history.back();
+    //   });
+
+    //   return middlewares;
+    // },
   }
 };
