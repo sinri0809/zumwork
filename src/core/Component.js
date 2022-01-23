@@ -6,12 +6,13 @@ function h(type, props={}, ...children){ // props값이 없을 수 있으므로 
  * @createElement : 객체형태를 html로 (Obejct)
  */
 class Component{
-  $where // 렌더링할 위치
+  where // 렌더링할 위치
   $target; // 렌더링하고싶은 dom
   state; // 데이터
-  constructor($where){
-    this.$where = $where;
-
+  path // url history
+  constructor(where, path='/'){
+    this.where = where;
+    this.path = path;
     this.state = {}; // 데이터 initializing
     this.render();
   }
@@ -54,7 +55,7 @@ class Component{
   eventHandler(){
   }
   render(){
-    this.$where.innerHTML = ''; // dom 초기화 수정 필요
+    this.where.innerHTML = ''; // dom 초기화 수정 필요
     this.$target = (
       <div>
         something
@@ -62,7 +63,7 @@ class Component{
     );
     
     this.$target = this.createElement(this.$target); 
-    this.$where.appendChild(this.$target); 
+    this.where.appendChild(this.$target); 
     this.eventHandler(); // 이벤트 등록
   }
 }

@@ -31,7 +31,7 @@ export default class Header extends Component{
       </div>
     );
     this.$target = this.createElement(this.$target);
-    this.$where.appendChild(this.$target);
+    this.where.appendChild(this.$target);
     this.eventHandler();
   }
 }
