@@ -23,7 +23,7 @@
       "author": "니체",
       "date": "1872-0-0",
       "cont": "대위법적인 발성술과 귀의 현혹술 아래에는 분노와 파괴욕의 기저음이 으르렁거리고 있지 않는가?”(Brummt nicht ein Grundbass von Zorn und Vernichtungslust unter aller Ihrer contrapunktischen Stimmen-Kunst und Ohren-Verf?hrerei hinweg)",
-      "like": false
+      "like": true
     },{
       "category": "food",
       "index": 3,
@@ -31,7 +31,31 @@
       "author": "먹방",
       "date": "2022-1-1",
       "cont": "로제로제로제로제로제",
+      "like": true
+    },{
+      "category": "life",
+      "index": 4,
+      "title": "겨울 알뜰하게 보내기",
+      "author": "스크루지",
+      "date": "2022-2-1",
+      "cont": "추우면 따뜻하게 ^^",
+      "like": true
+    },{
+      "category": "life",
+      "index": 5,
+      "title": "여행가고싶다....",
+      "author": "흔한 추억러",
+      "date": "2022-1-1",
+      "cont": "하이델베르크의 추억",
       "like": false
+    },{
+      "category": "life",
+      "index": 6,
+      "title": "마늘장아찌",
+      "author": "먹방",
+      "date": "2022-1-1",
+      "cont": "맛있게 돼라",
+      "like": true
     }
   ]
 

@@ -27,7 +27,7 @@ class Component{
     const $element = document.createElement(type);
     // 2 Attribute
     Object.keys(props).map((attr)=> {
-      if(typeof props[attr] === "string"){
+      if(typeof props[attr] === "string"||typeof props[attr] === "number"){
         $element.setAttribute(attr, props[attr]);
       }else{
         $element.setAttribute(attr, undefined);

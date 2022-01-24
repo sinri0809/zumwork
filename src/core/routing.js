@@ -3,7 +3,6 @@
 
 
 
-
 import Posts from "../components/Posts";
 
 const route = {

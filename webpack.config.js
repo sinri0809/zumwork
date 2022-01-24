@@ -92,7 +92,7 @@ module.exports = {
             "author": "니체",
             "date": "1872-0-0",
             "cont": "대위법적인 발성술과 귀의 현혹술 아래에는 분노와 파괴욕의 기저음이 으르렁거리고 있지 않는가?”(Brummt nicht ein Grundbass von Zorn und Vernichtungslust unter aller Ihrer contrapunktischen Stimmen-Kunst und Ohren-Verf?hrerei hinweg)",
-            "like": false
+            "like": true
           },{
             "category": "food",
             "index": 3,
@@ -100,7 +100,31 @@ module.exports = {
             "author": "먹방",
             "date": "2022-1-1",
             "cont": "로제로제로제로제로제",
+            "like": true
+          },{
+            "category": "life",
+            "index": 4,
+            "title": "겨울 알뜰하게 보내기",
+            "author": "스크루지",
+            "date": "2022-2-1",
+            "cont": "추우면 따뜻하게 ^^",
+            "like": true
+          },{
+            "category": "life",
+            "index": 5,
+            "title": "여행가고싶다....",
+            "author": "흔한 추억러",
+            "date": "2022-1-1",
+            "cont": "하이델베르크의 추억",
             "like": false
+          },{
+            "category": "life",
+            "index": 6,
+            "title": "마늘장아찌",
+            "author": "먹방",
+            "date": "2022-1-1",
+            "cont": "맛있게 돼라",
+            "like": true
           }
         ]
       
@@ -109,45 +133,45 @@ module.exports = {
         res.json(posts);
       });
     },
-    // setupMiddlewares: (middlewares, devServer) => {
-    //   if (!devServer) {
-    //     throw new Error('webpack-dev-server is not defined');
-    //   }
+    setupMiddlewares: (middlewares, devServer) => {
+      if (!devServer) {
+        throw new Error('webpack-dev-server is not defined');
+      }
 
-    //   devServer.app.get('/setup-middleware/some/path', (_, response) => {
-    //     response.send('setup-middlewares option GET');
-    //   });
+      devServer.app.get('/setup-middleware/some/path', (_, response) => {
+        response.send('setup-middlewares option GET');
+      });
 
-    //   // Use the `unshift` method if you want to run a middleware before all other middlewares
-    //   // or when you are migrating from the `onBeforeSetupMiddleware` option
-    //   middlewares.unshift({
-    //     name: 'fist-in-array',
-    //     // `path` is optional
-    //     path: '/foo/path',
-    //     middleware: (req, res) => {
-    //       res.send('Foo!');
-    //     },
-    //   });
+      // Use the `unshift` method if you want to run a middleware before all other middlewares
+      // or when you are migrating from the `onBeforeSetupMiddleware` option
+      middlewares.unshift({
+        name: 'fist-in-array',
+        // `path` is optional
+        path: '/foo/path',
+        middleware: (req, res) => {
+          res.send('Foo!');
+        },
+      });
 
-    //   // Use the `push` method if you want to run a middleware after all other middlewares
-    //   // or when you are migrating from the `onAfterSetupMiddleware` option
-    //   // 이걸 이용하면 store를 제어할 수 있겠다
-    //   middlewares.push({
-    //     name: 'hello-world-test-one',
-    //     // `path` is optional
-    //     path: '/food',
-    //     middleware: (req, res) => {
-    //       res.send('Foo Bar!');
-    //     },
-    //   });
+      // Use the `push` method if you want to run a middleware after all other middlewares
+      // or when you are migrating from the `onAfterSetupMiddleware` option
+      // 이걸 이용하면 store를 제어할 수 있겠다
+      middlewares.push({
+        name: 'hello-world-test-one',
+        // `path` is optional
+        path: '/food',
+        middleware: (req, res) => {
+          res.send('Foo Bar!');
+        },
+      });
 
-    //   // 어떤 경로로 들어오든지간에 
-    //   middlewares.push((req, res) => {
-    //     res.send('요청할 수 없는 페이지 입니다!');
-    //     // history.back();
-    //   });
+      // 어떤 경로로 들어오든지간에 
+      middlewares.push((req, res) => {
+        res.send('요청할 수 없는 페이지 입니다!');
+        // history.back();
+      });
 
-    //   return middlewares;
-    // },
+      return middlewares;
+    },
   }
 };
