@@ -8,12 +8,13 @@ function h(type, props={}, ...children){ // props값이 없을 수 있으므로 
 class Component{
   where // 렌더링할 위치
   $target; // 렌더링하고싶은 dom
-  state; // 데이터
+  $state; // 데이터
   path // url history
-  constructor(where, path='/'){
+  constructor(where, path='/', state={}){
     this.where = where;
     this.path = path;
-    this.state = {}; // 데이터 initializing
+    this.$state = state;
+
     this.render();
   }
 
@@ -46,14 +47,16 @@ class Component{
     
     return $element; // type: object
   }
+
   setState(newData){
-    this.state = {...this.state, ...newData}; // 데이터 바꾸고나면
+    this.$state = {...this.$state, ...newData}; // 데이터 바꾸고나면
     this.render(); // 렌더링
   }
 
-  // Component마다 필요한 이벤트 작성
   eventHandler(){
+    // Component마다 필요한 이벤트 작성
   }
+
   render(){
     this.where.innerHTML = ''; // dom 초기화 수정 필요
     this.$target = (
@@ -64,7 +67,7 @@ class Component{
     
     this.$target = this.createElement(this.$target); 
     this.where.appendChild(this.$target); 
-    this.eventHandler(); // 이벤트 등록
+    // this.eventHandler(); // 이벤트 등록
   }
 }
 

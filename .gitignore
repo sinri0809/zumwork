@@ -1,5 +1,7 @@
 
 
-/build
+# /build
 /node_modules
-/data.json
+
+/store/test.js
+data.json
