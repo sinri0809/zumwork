@@ -14,6 +14,10 @@ body {
     background-color: rgba($color: #000000, $alpha: 0.5);
   }
 }
+h5,
+p {
+  margin: 0;
+}
 mark {
   background-color: darkcyan;
 }
@@ -22,11 +26,15 @@ a {
   padding: 0 1em;
 }
 button {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   border: none;
   border-radius: 1em;
   cursor: pointer;
 }
+p {
+  display: inline-block;
+}
+
 .header-search {
   margin-top: 1rem;
   button {
@@ -34,20 +42,57 @@ button {
     margin-right: 1rem;
   }
 }
-.posts,
-.top-post {
+@mixin flexSet() {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  flex-direction: column;
+  margin-top: 1rem;
   .post-card {
-    width: 20%;
-    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 10rem;
     overflow: hidden;
+    color: whitesmoke;
     background-color: rgba($color: #000000, $alpha: 0.2);
+    h5 {
+      color: black;
+    }
+    button {
+      display: block;
+      font-size: 1rem;
+    }
+    p {
+      height: 2rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &:hover {
+      background-color: rgba($color: #000000, $alpha: 0.5);
+    }
   }
 }
 .top-post {
-  margin-top: 1rem;
   background-color: salmon;
+  .--top {
+    @include flexSet();
+  }
+  .--bottom {
+    h5 {
+      display: inline-block;
+      padding: 0 1em;
+      color: black;
+    }
+    li {
+      position: relative;
+      font-size: 1rem;
+      height: 1.4rem;
+    }
+  }
+}
+.cards {
+  @include flexSet();
+  justify-content: flex-start;
 }
